@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:57:53 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ec.tienda.movil.almacen.modelo.ReseniaProducto" table="resenia_producto" catalog="app_tienda_almacen" optimistic-lock="version">
+        <id name="idReseniaProducto" type="java.lang.Integer">
+            <column name="id_resenia_producto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="producto" class="ec.tienda.movil.almacen.modelo.Producto" fetch="select">
+            <column name="idproducto" not-null="true" />
+        </many-to-one>
+        <property name="calificacion" type="string">
+            <column name="calificacion" length="45" />
+        </property>
+        <property name="opinion" type="string">
+            <column name="opinion" length="300" />
+        </property>
+        <property name="identificacionCliente" type="string">
+            <column name="identificacion_cliente" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

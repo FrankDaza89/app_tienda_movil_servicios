@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:36:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ec.tienda.movil.financiero.modelo.DineroElectronico" table="dinero_electronico" catalog="app_tienda_financiero" optimistic-lock="version">
+        <id name="idDineroElectronico" type="int">
+            <column name="id_dinero_electronico" />
+            <generator class="assigned" />
+        </id>
+        <property name="identificadorDe" type="string">
+            <column name="identificador_de" length="100" not-null="true" />
+        </property>
+        <property name="valorCambioDe" type="string">
+            <column name="valor_cambio_de" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

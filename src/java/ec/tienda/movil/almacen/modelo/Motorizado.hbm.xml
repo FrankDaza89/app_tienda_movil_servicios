@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:57:53 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ec.tienda.movil.almacen.modelo.Motorizado" table="motorizado" catalog="app_tienda_almacen" optimistic-lock="version">
+        <id name="idMotorizado" type="java.lang.Integer">
+            <column name="id_motorizado" />
+            <generator class="identity" />
+        </id>
+        <property name="identificacion" type="string">
+            <column name="identificacion" length="45" />
+        </property>
+        <set name="salidas" table="salida" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_motorizado" not-null="true" />
+            </key>
+            <one-to-many class="ec.tienda.movil.almacen.modelo.Salida" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:36:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ec.tienda.movil.financiero.modelo.ClientePago" table="cliente_pago" catalog="app_tienda_financiero" optimistic-lock="version">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="id_cliente" />
+            <generator class="identity" />
+        </id>
+        <property name="identificacionClienteP" type="string">
+            <column name="identificacion_cliente_p" length="45" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cliente" not-null="true">
+                    <comment>Referencia a la tabla cliente_pago</comment>
+                </column>
+            </key>
+            <one-to-many class="ec.tienda.movil.financiero.modelo.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

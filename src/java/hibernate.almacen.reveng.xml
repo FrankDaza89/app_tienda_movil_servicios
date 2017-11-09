@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+    <schema-selection match-catalog="app_tienda_almacen"/>
+    <table-filter match-name="motorizado"/>
+    <table-filter match-name="cliente"/>
+    <table-filter match-name="imagen_producto"/>
+    <table-filter match-name="producto"/>
+    <table-filter match-name="resenia_producto"/>
+    <table-filter match-name="categoria"/>
+    <table-filter match-name="tipo_estado"/>
+    <table-filter match-name="entrada"/>
+    <table-filter match-name="salida"/>
+    <table-filter match-name="subcategoria"/>
+    <table-filter match-name="detalle_producto"/>
+    <table-filter match-name="bodega"/>
+    <table-filter match-name="inventario"/>
+</hibernate-reverse-engineering>

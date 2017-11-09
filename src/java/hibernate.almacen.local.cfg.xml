@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/app_tienda_almacen?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Inventario.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/DetalleProducto.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/ReseniaProducto.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/ImagenProducto.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Entrada.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Categoria.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Salida.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Motorizado.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/TipoEstado.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Cliente.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Producto.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Bodega.hbm.xml"/>
+        <mapping resource="ec/tienda/movil/almacen/modelo/Subcategoria.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

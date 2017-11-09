@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:36:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ec.tienda.movil.financiero.modelo.Fecha" table="fecha" catalog="app_tienda_financiero" optimistic-lock="version">
+        <id name="idFecha" type="java.lang.Integer">
+            <column name="id_fecha" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="hora" class="ec.tienda.movil.financiero.modelo.Hora" fetch="select">
+            <column name="id_hora" not-null="true" />
+        </many-to-one>
+        <property name="fechaEntrega" type="timestamp">
+            <column name="fecha_entrega" length="19" />
+        </property>
+        <property name="estadoFecha" type="string">
+            <column name="estado_fecha" length="45" />
+        </property>
+        <set name="horarios" table="horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fecha" not-null="true" />
+            </key>
+            <one-to-many class="ec.tienda.movil.financiero.modelo.Horario" />
+        </set>
+    </class>
+</hibernate-mapping>

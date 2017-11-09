@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:36:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ec.tienda.movil.financiero.modelo.Paypal" table="paypal" catalog="app_tienda_financiero" optimistic-lock="version">
+        <id name="idPaypal" type="java.lang.Integer">
+            <column name="id_paypal" />
+            <generator class="identity" />
+        </id>
+        <property name="numeroTarjeta" type="string">
+            <column name="numero_tarjeta" length="100" not-null="true" />
+        </property>
+        <property name="identificadorPaypal" type="string">
+            <column name="identificador_paypal" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

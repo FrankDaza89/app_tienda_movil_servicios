@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:36:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ec.tienda.movil.financiero.modelo.SalidaPago" table="salida_pago" catalog="app_tienda_financiero" optimistic-lock="version">
+        <id name="idSalidaPago" type="java.lang.Integer">
+            <column name="id_salida_pago" />
+            <generator class="identity" />
+        </id>
+        <property name="idSalidaP" type="java.lang.Integer">
+            <column name="id_salida_p" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_salida_pago" not-null="true" />
+            </key>
+            <one-to-many class="ec.tienda.movil.financiero.modelo.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

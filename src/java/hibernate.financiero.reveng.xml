@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+    <schema-selection match-catalog="app_tienda_financiero"/>
+    <table-filter match-name="efectivo"/>
+    <table-filter match-name="horario"/>
+    <table-filter match-name="fecha"/>
+    <table-filter match-name="venta"/>
+    <table-filter match-name="cliente_pago"/>
+    <table-filter match-name="dinero_electronico"/>
+    <table-filter match-name="paypal"/>
+    <table-filter match-name="salida_pago"/>
+    <table-filter match-name="forma_pago"/>
+    <table-filter match-name="hora"/>
+</hibernate-reverse-engineering>
