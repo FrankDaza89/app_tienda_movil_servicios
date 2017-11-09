@@ -5,12 +5,15 @@
  */
 package ec.tienda.movil.global;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author Pancho
  */
 public class Global {
-    
+
     public static String AMBIENTE_PROYECTO = "";
     public static String dirArchivos;
     public static String dirRevocaciones;
@@ -19,4 +22,18 @@ public class Global {
     public static String rdeRevocacion;
     public static String dirCertificado;
     public static String claveCertificado;
+
+    /**
+     * Inicia las configuraciones iniciales del proyecto
+     */
+    public static void init() {
+        Propiedades propiedades = new Propiedades();
+        propiedades.cargarPropiedadesAmbiente();
+        propiedades.cargarPropiedades();
+        if (Log.configurarLog()) {
+            Logger.getLogger(Propiedades.class.getName()).log(Level.INFO, "Logger configurado");
+        } else {
+            Logger.getLogger(Propiedades.class.getName()).log(Level.ERROR, "Logger: error al configurar");
+        }
+    }
 }
