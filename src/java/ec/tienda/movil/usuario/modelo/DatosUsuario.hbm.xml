@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:19:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="app_tienda_usuario" name="ec.tienda.movil.usuario.modelo.DatosUsuario" optimistic-lock="version" table="datos_usuario">
+    <id name="idContacto" type="java.lang.Integer">
+      <column name="id_contacto"/>
+      <generator class="foreign">
+        <param name="property">loginUsuario</param>
+      </generator>
+    </id>
+    <one-to-one class="ec.tienda.movil.usuario.modelo.LoginUsuario" constrained="true" name="loginUsuario"/>
+    <many-to-one class="ec.tienda.movil.usuario.modelo.TipoAcceso" fetch="select" name="tipoAcceso">
+      <column name="id_tipo_acceso" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="ec.tienda.movil.usuario.modelo.TipoUsuario" fetch="select" name="tipoUsuario">
+      <column name="id_tipo_usuario" not-null="true"/>
+    </many-to-one>
+    <property name="identificacion" type="string">
+      <column length="45" name="identificacion"/>
+    </property>
+    <property name="nombres" type="string">
+      <column length="200" name="nombres"/>
+    </property>
+    <property name="apellidos" type="string">
+      <column length="200" name="apellidos"/>
+    </property>
+    <property name="razonSocial" type="string">
+      <column length="200" name="razon_social"/>
+    </property>
+    <property name="email" type="string">
+      <column length="200" name="email" not-null="true"/>
+    </property>
+    <property name="telefono" type="string">
+      <column length="45" name="telefono"/>
+    </property>
+    <property name="codigoPostal" type="string">
+      <column length="200" name="codigo_postal"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="ubicacions" table="ubicacion">
+      <key>
+        <column name="id_contacto" not-null="true"/>
+      </key>
+      <one-to-many class="ec.tienda.movil.usuario.modelo.Ubicacion"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="asignacionPerfils" table="asignacion_perfil">
+      <key>
+        <column name="id_contacto" not-null="true"/>
+      </key>
+      <one-to-many class="ec.tienda.movil.usuario.modelo.AsignacionPerfil"/>
+    </set>
+  </class>
+</hibernate-mapping>

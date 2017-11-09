@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="app_tienda_usuario"/>
+  <table-filter match-name="tipo_acceso"/>
+  <table-filter match-name="ubicacion"/>
+  <table-filter match-name="datos_usuario"/>
+  <table-filter match-name="login_usuario"/>
+  <table-filter match-name="asignacion_perfil"/>
+  <table-filter match-name="pantalla"/>
+  <table-filter match-name="perfil"/>
+  <table-filter match-name="tipo_usuario"/>
+  <table-filter match-name="asignacion_pantalla"/>
+  <table-filter match-name="sector"/>
+</hibernate-reverse-engineering>

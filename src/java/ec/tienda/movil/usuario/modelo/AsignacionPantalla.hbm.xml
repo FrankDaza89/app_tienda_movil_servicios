@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:19:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="app_tienda_usuario" name="ec.tienda.movil.usuario.modelo.AsignacionPantalla" optimistic-lock="version" table="asignacion_pantalla">
+    <id name="idAsignacionPantalla" type="java.lang.Integer">
+      <column name="id_asignacion_pantalla"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="ec.tienda.movil.usuario.modelo.Pantalla" fetch="select" name="pantalla">
+      <column name="id_pantalla" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="ec.tienda.movil.usuario.modelo.Perfil" fetch="select" name="perfil">
+      <column name="id_perfil" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

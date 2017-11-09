@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/11/2017 16:19:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="app_tienda_usuario" name="ec.tienda.movil.usuario.modelo.TipoUsuario" optimistic-lock="version" table="tipo_usuario">
+    <id name="idTipoUsuario" type="java.lang.Integer">
+      <column name="id_tipo_usuario"/>
+      <generator class="identity"/>
+    </id>
+    <property name="tipoUsuario" type="string">
+      <column length="45" name="tipo_usuario"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="datosUsuarios" table="datos_usuario">
+      <key>
+        <column name="id_tipo_usuario" not-null="true"/>
+      </key>
+      <one-to-many class="ec.tienda.movil.usuario.modelo.DatosUsuario"/>
+    </set>
+  </class>
+</hibernate-mapping>
