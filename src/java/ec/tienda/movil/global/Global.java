@@ -15,13 +15,6 @@ import org.apache.log4j.Logger;
 public class Global {
 
     public static String AMBIENTE_PROYECTO = "";
-    public static String dirArchivos;
-    public static String dirRevocaciones;
-    public static String semilla = "EudjoqhPANJFsnvwAnfuEewhjwoqeclg";
-    public static String dirTemporal;
-    public static String rdeRevocacion;
-    public static String dirCertificado;
-    public static String claveCertificado;
 
     /**
      * Inicia las configuraciones iniciales del proyecto
