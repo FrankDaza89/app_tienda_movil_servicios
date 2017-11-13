@@ -4,9 +4,9 @@
 <!-- Generated 09/11/2017 16:36:04 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="ec.tienda.movil.financiero.modelo.DineroElectronico" table="dinero_electronico" catalog="app_tienda_financiero" optimistic-lock="version">
-        <id name="idDineroElectronico" type="int">
+        <id name="idDineroElectronico" type="java.lang.Integer">
             <column name="id_dinero_electronico" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="identificadorDe" type="string">
             <column name="identificador_de" length="100" not-null="true" />

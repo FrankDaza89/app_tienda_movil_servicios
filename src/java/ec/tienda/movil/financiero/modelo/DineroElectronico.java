@@ -6,29 +6,29 @@ package ec.tienda.movil.financiero.modelo;
  */
 public class DineroElectronico implements java.io.Serializable {
 
-    private int idDineroElectronico;
+    private Integer idDineroElectronico;
     private String identificadorDe;
     private String valorCambioDe;
 
     public DineroElectronico() {
     }
 
-    public DineroElectronico(int idDineroElectronico, String identificadorDe) {
+    public DineroElectronico(Integer idDineroElectronico, String identificadorDe) {
         this.idDineroElectronico = idDineroElectronico;
         this.identificadorDe = identificadorDe;
     }
 
-    public DineroElectronico(int idDineroElectronico, String identificadorDe, String valorCambioDe) {
+    public DineroElectronico(Integer idDineroElectronico, String identificadorDe, String valorCambioDe) {
         this.idDineroElectronico = idDineroElectronico;
         this.identificadorDe = identificadorDe;
         this.valorCambioDe = valorCambioDe;
     }
 
-    public int getIdDineroElectronico() {
+    public Integer getIdDineroElectronico() {
         return this.idDineroElectronico;
     }
 
-    public void setIdDineroElectronico(int idDineroElectronico) {
+    public void setIdDineroElectronico(Integer idDineroElectronico) {
         this.idDineroElectronico = idDineroElectronico;
     }
 
