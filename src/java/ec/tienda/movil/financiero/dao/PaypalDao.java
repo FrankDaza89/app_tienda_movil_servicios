@@ -5,7 +5,7 @@
  */
 package ec.tienda.movil.financiero.dao;
 
-import ec.tienda.movil.financiero.modelo.ClientePago;
+import ec.tienda.movil.financiero.modelo.Paypal;
 import ec.tienda.movil.global.HibernateUtil;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -17,15 +17,15 @@ import org.hibernate.Transaction;
  *
  * @author Pancho
  */
-public class ClientePagoDao {
+public class PaypalDao {
 
-    public Boolean insertarClientePago(ClientePago clientePago) throws Exception {
+    public Boolean insertarPaypal(Paypal paypal) throws Exception {
         Boolean bandera = false;
         Transaction transaction = null;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         try {
             transaction = session.beginTransaction();
-            session.save(clientePago);
+            session.save(paypal);
             bandera = true;
             if (!session.getTransaction().wasCommitted()) {
                 session.getTransaction().commit();
@@ -35,7 +35,7 @@ public class ClientePagoDao {
                 transaction.rollback();
             }
             bandera = false;
-            Logger.getLogger(ClientePagoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(PaypalDao.class.getSimpleName()).log(Level.ERROR, null, ex);
         } finally {
             session.flush();
             session.close();
@@ -43,13 +43,13 @@ public class ClientePagoDao {
         return bandera;
     }
 
-    public boolean actualizarClientePago(ClientePago clientePago) {
+    public boolean actualizarPaypal(Paypal paypal) {
         boolean estado = false;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         Transaction trans = null;
         try {
             trans = session.beginTransaction();
-            session.update(clientePago);
+            session.update(paypal);
             estado = true;
             if (!session.getTransaction().wasCommitted()) {
                 session.getTransaction().commit();
@@ -58,7 +58,7 @@ public class ClientePagoDao {
             if (trans != null) {
                 trans.rollback();
             }
-            Logger.getLogger(ClientePagoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(PaypalDao.class.getSimpleName()).log(Level.ERROR, null, ex);
         } finally {
             session.flush();
             session.close();
@@ -66,17 +66,17 @@ public class ClientePagoDao {
         return estado;
     }
 
-    public ClientePago obtenerClientePagoPorIdCliente(Integer idCliente) {
-        ClientePago obj = null;
+    public Paypal obtenerPaypalPorId(Integer idPaypal) {
+        Paypal obj = null;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         Transaction trans = null;
         try {
             trans = session.beginTransaction();
-            Query q = session.createQuery("from ClientePago where idCliente=:idCliente");
-            q.setParameter("idCliente", idCliente);
-            obj = (ClientePago) q.uniqueResult();
+            Query q = session.createQuery("from Paypal where idPaypal=:idPaypal");
+            q.setParameter("idPaypal", idPaypal);
+            obj = (Paypal) q.uniqueResult();
         } catch (Exception ex) {
-            Logger.getLogger(ClientePagoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(PaypalDao.class.getSimpleName()).log(Level.ERROR, null, ex);
         } finally {
             session.flush();
             session.close();

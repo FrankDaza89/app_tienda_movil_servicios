@@ -5,7 +5,7 @@
  */
 package ec.tienda.movil.financiero.dao;
 
-import ec.tienda.movil.financiero.modelo.ClientePago;
+import ec.tienda.movil.financiero.modelo.DineroElectronico;
 import ec.tienda.movil.global.HibernateUtil;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -17,15 +17,15 @@ import org.hibernate.Transaction;
  *
  * @author Pancho
  */
-public class ClientePagoDao {
+public class DineroElectronicoDao {
 
-    public Boolean insertarClientePago(ClientePago clientePago) throws Exception {
+    public Boolean insertarDineroElectronico(DineroElectronico dineroElectronico) throws Exception {
         Boolean bandera = false;
         Transaction transaction = null;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         try {
             transaction = session.beginTransaction();
-            session.save(clientePago);
+            session.save(dineroElectronico);
             bandera = true;
             if (!session.getTransaction().wasCommitted()) {
                 session.getTransaction().commit();
@@ -35,7 +35,7 @@ public class ClientePagoDao {
                 transaction.rollback();
             }
             bandera = false;
-            Logger.getLogger(ClientePagoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(DineroElectronicoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
         } finally {
             session.flush();
             session.close();
@@ -43,13 +43,13 @@ public class ClientePagoDao {
         return bandera;
     }
 
-    public boolean actualizarClientePago(ClientePago clientePago) {
+    public boolean actualizarDineroElectronico(DineroElectronico dineroElectronico) {
         boolean estado = false;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         Transaction trans = null;
         try {
             trans = session.beginTransaction();
-            session.update(clientePago);
+            session.update(dineroElectronico);
             estado = true;
             if (!session.getTransaction().wasCommitted()) {
                 session.getTransaction().commit();
@@ -58,7 +58,7 @@ public class ClientePagoDao {
             if (trans != null) {
                 trans.rollback();
             }
-            Logger.getLogger(ClientePagoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(DineroElectronicoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
         } finally {
             session.flush();
             session.close();
@@ -66,17 +66,17 @@ public class ClientePagoDao {
         return estado;
     }
 
-    public ClientePago obtenerClientePagoPorIdCliente(Integer idCliente) {
-        ClientePago obj = null;
+    public DineroElectronico obtenerDineroElectronicoPorId(Integer idDineroElectronico) {
+        DineroElectronico obj = null;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         Transaction trans = null;
         try {
             trans = session.beginTransaction();
-            Query q = session.createQuery("from ClientePago where idCliente=:idCliente");
-            q.setParameter("idCliente", idCliente);
-            obj = (ClientePago) q.uniqueResult();
+            Query q = session.createQuery("from DineroEfectivo where idDineroElectronico=:idDineroElectronico");
+            q.setParameter("idDineroElectronico", idDineroElectronico);
+            obj = (DineroElectronico) q.uniqueResult();
         } catch (Exception ex) {
-            Logger.getLogger(ClientePagoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(DineroElectronicoDao.class.getSimpleName()).log(Level.ERROR, null, ex);
         } finally {
             session.flush();
             session.close();
