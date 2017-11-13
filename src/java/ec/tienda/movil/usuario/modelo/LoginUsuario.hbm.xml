@@ -2,20 +2,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 09/11/2017 16:19:19 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="app_tienda_usuario" name="ec.tienda.movil.usuario.modelo.LoginUsuario" optimistic-lock="version" table="login_usuario">
-    <id name="idUsuario" type="java.lang.Integer">
-      <column name="id_usuario"/>
-      <generator class="identity"/>
-    </id>
-    <property name="usuario" type="string">
-      <column length="45" name="usuario" not-null="true"/>
-    </property>
-    <property name="clave" type="string">
-      <column length="200" name="clave" not-null="true"/>
-    </property>
-    <property name="estado" type="string">
-      <column length="45" name="estado"/>
-    </property>
-    <one-to-one class="ec.tienda.movil.usuario.modelo.DatosUsuario" name="datosUsuario"/>
-  </class>
+    <class catalog="app_tienda_usuario" name="ec.tienda.movil.usuario.modelo.LoginUsuario" optimistic-lock="version" table="login_usuario">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario"/>
+            <generator class="identity"/>
+        </id>
+        <property name="usuario" type="string">
+            <column length="45" name="usuario" not-null="true"/>
+        </property>
+        <property name="clave" type="string">
+            <column length="200" name="clave" not-null="true"/>
+        </property>
+        <property name="estado" type="string">
+            <column length="45" name="estado"/>
+        </property>
+        <one-to-one class="ec.tienda.movil.usuario.modelo.DatosUsuario" name="datosUsuario"/>
+    </class>
 </hibernate-mapping>
