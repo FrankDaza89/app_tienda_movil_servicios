@@ -17,7 +17,7 @@
         <property name="estadoHora" type="string">
             <column name="estado_hora" length="45" />
         </property>
-        <set name="fechas" table="fecha" inverse="true" lazy="true" fetch="select">
+        <set name="fechas" table="fecha" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="id_hora" not-null="true" />
             </key>
