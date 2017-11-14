@@ -58,7 +58,7 @@ public class Propiedades {
         boolean success = false;
         InputStream proyectoPropiedades = null;
         try {
-            proyectoPropiedades = getClass().getClassLoader().getResourceAsStream("rde." + ambiente + ".properties");
+            proyectoPropiedades = getClass().getClassLoader().getResourceAsStream("tienda." + ambiente + ".properties");
             Properties properties = new Properties();
             if (proyectoPropiedades != null) {
                 properties.load(proyectoPropiedades);
