@@ -24,4 +24,19 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    
+    <display-name>AppTiendaMovilServicios</display-name>
+    <servlet> 
+        <servlet-name>Jersey REST Service</servlet-name> 
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class> 
+        <init-param> 
+            <param-name>com.sun.jersey.config.property.packages</param-name> 
+            <param-value>ec.tienda.movil.financiero.servicio</param-value> <!---paquete en el que se encuentran nuestras clases -->
+        </init-param> 
+        <load-on-startup>1</load-on-startup> 
+    </servlet> 
+    <servlet-mapping> 
+        <servlet-name>Jersey REST Service</servlet-name> 
+        <url-pattern>/Servicios/*</url-pattern> <!--- ruta de nuestro web service -->
+    </servlet-mapping> 
 </web-app>
