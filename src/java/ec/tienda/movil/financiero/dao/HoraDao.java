@@ -7,6 +7,7 @@ package ec.tienda.movil.financiero.dao;
 
 import ec.tienda.movil.financiero.modelo.Hora;
 import ec.tienda.movil.global.HibernateUtil;
+import java.util.List;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -43,7 +44,7 @@ public class HoraDao {
         return bandera;
     }
 
-    public boolean actualizarHora(Hora hora) {
+    public boolean actualizarHora(Hora hora) throws Exception {
         boolean estado = false;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         Transaction trans = null;
@@ -66,7 +67,7 @@ public class HoraDao {
         return estado;
     }
 
-    public Hora obtenerEfectivoPorId(Integer idHora) {
+    public Hora obtenerHoraPorId(Integer idHora) throws Exception {
         Hora obj = null;
         Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
         Transaction trans = null;
@@ -82,5 +83,22 @@ public class HoraDao {
             session.close();
         }
         return obj;
+    }
+
+    public List<Hora> obtenerHoras() throws Exception {
+        List<Hora> lista = null;
+        Session session = HibernateUtil.getSESION_FINANCIERO().openSession();
+        Transaction trans = null;
+        try {
+            trans = session.beginTransaction();
+            Query q = session.createQuery("from Hora");
+            lista = q.list();
+        } catch (Exception ex) {
+            Logger.getLogger(HoraDao.class.getSimpleName()).log(Level.ERROR, null, ex);
+        } finally {
+            session.flush();
+            session.close();
+        }
+        return lista;
     }
 }
