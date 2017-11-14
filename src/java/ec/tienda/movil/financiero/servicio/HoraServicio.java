@@ -5,7 +5,6 @@
  */
 package ec.tienda.movil.financiero.servicio;
 
-import com.sun.jersey.api.client.ClientResponse;
 import ec.tienda.movil.financiero.dao.HoraDao;
 import ec.tienda.movil.financiero.modelo.Hora;
 import java.util.List;
@@ -26,6 +25,14 @@ import org.apache.log4j.Logger;
 @Path("HoraServicio")
 public class HoraServicio {
 
+    /**
+     * Inserta un registro en la tabla Hora
+     *
+     * @param horaEntrega1
+     * @param horaEntrega2
+     * @param estadoHora
+     * @return
+     */
     @POST
     @Path("/insertarHora/{horaEntrega1}&{horaEntrega2}&{estadoHora}")
     @Produces(MediaType.TEXT_PLAIN)
@@ -46,21 +53,29 @@ public class HoraServicio {
         return String.valueOf(respuesta);
     }
 
+    /**
+     * Consulta todas las horas registradas
+     *
+     * @return
+     */
     @POST
     @Path("/obtenerHoras")
     @Produces(MediaType.APPLICATION_JSON)
     public Response obtenerHoras() {
 
+        Response response = null;
         HoraDao dao = new HoraDao();
         List<Hora> horas = null;
         try {
             horas = dao.obtenerHoras();
+            GenericEntity< List< Hora>> entity;
+            entity = new GenericEntity< List< Hora>>(horas) {
+            };
+            response = Response.status(200).entity(entity).build();
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(HoraServicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            Logger.getLogger(HoraServicio.class.getName()).log(Level.ERROR, null, ex);
         }
-        GenericEntity< List< Hora>> entity;
-        entity = new GenericEntity< List< Hora>>(horas) {
-        };
-        return Response.status(200).entity(entity).build();
+        return response;
     }
 }
